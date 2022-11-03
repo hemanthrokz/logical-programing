@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>purchase Inventory product</title>
+</head>
+
+<body>
+
+	<div class="container">
+	
+		<h3>purchase Directory</h3>
+		<hr>
+		
+		<p class="h4 mb-4">purchase product</p>
+
+<!--		when this form is loaded it will call getter method initially to populate the form-->
+<!--	and when we click the save button this all r post call which will call all the setter methods {setproductid,setname,setinventrycountand set productprice}-->
+		<form action="#" th:action="@{/products/save}"
+						 th:object="${product_showFormForAdd}" method="POST">
+
+			<!-- Add hidden form field to handle update -->
+			<input type="hidden" th:field="*{productid}" />
+<!--			<input type="text" th:field="*{productid}"-->
+<!--					class="form-control mb-4 col-4" placeholder="Product Id">-->
+			<a>You have selected <a th:text="*{name}" ></a>
+				and the price of the product is <a th:text ="*{productprice}"></a> </a>
+
+			<hr>
+			<button type="submit" class="btn btn-info col-2">ok</button>
+						
+		</form>
+	
+		<hr>
+		<a th:href="@{/products/home}">Back to Inventory</a>
+		
+	</div>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+

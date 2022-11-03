@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Products Directory</title>
+</head>
+
+<body>
+
+<h3>Products Directory</h3>
+<hr>
+
+
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>Product Name</th>
+        <th>Product ID</th>
+        <th>Product Count</th>
+        <th>Product price</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="tempproduct : ${products}">
+
+        <td th:text="${tempproduct.name}" />
+        <td th:text="${tempproduct.productid}" />
+        <td th:text="${tempproduct.productinventrycount}" />
+        <td th:text="${tempproduct.productprice}" />
+
+        <!-- Add update button/link -->
+        <td>
+            <a th:href="@{/products/showFormForPurchase(productId=${tempproduct.productid})}"
+               class="btn btn-info btn-sm">
+                purchase
+            </a>
+
+
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+</body>
+</html>
+
+
+
